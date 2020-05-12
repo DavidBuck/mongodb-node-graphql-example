@@ -1,0 +1,38 @@
+{
+  "name": "mongodb-node-graphql-example",
+  "version": "1.0.0",
+  "description": "MongoDB Node GraphQL example",
+  "author": "David Buck",
+  "repository": "github:davidbuck/mongodb-node-graphql-example",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build": "babel src -d dist --source-maps",
+    "develop": "babel -w src -d dist --source-maps",
+    "prestart": "npm run copy-schema",
+    "start": "npm run develop & nodemon dist/index.js --delay 800ms",
+    "serve": "node dist/index.js",
+    "copy-schema": "ncp src/graphql/schema.graphql dist/graphql/schema.graphql"
+  },
+  "dependencies": {
+    "core-js": "^3.6.5",
+    "dotenv": "^8.2.0",
+    "graphql-yoga": "^1.18.3",
+    "mongoose": "^5.9.13",
+    "regenerator-runtime": "^0.13.5"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.0.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-prettier": "^3.1.3",
+    "ncp": "^2.0.0",
+    "nodemon": "^2.0.3",
+    "prettier": "^2.0.5"
+  }
+}

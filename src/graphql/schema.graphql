@@ -1,0 +1,48 @@
+type Query {
+  sensors: [Sensor]
+  sensorValues: [SensorValue]
+  sensor(_id: ID!): Sensor
+  sensorValue(_id: ID!): SensorValue
+}
+
+type Mutation {
+  createSensor(sensorName: String!, type: String!, location: String!): Sensor
+  createSensorValue(
+    temp: Float!
+    humidity: Float!
+    time: Date!
+    sensor: String!
+  ): SensorValue
+  updateSensor(
+    _id: ID!
+    sensorName: String!
+    type: String!
+    location: String!
+  ): Sensor
+  updateSensorValue(
+    _id: ID!
+    temp: Float!
+    humidity: Float!
+    time: Date!
+    sensor: String!
+  ): SensorValue
+  deleteSensor(_id: ID!): Boolean
+  deleteSensorValue(_id: ID!): Boolean
+}
+
+type Sensor {
+  sensorName: String!
+  type: String
+  location: String
+  _id: ID
+}
+
+type SensorValue {
+  temp: Float
+  humidity: Float
+  time: Date
+  sensor: String
+  _id: ID
+}
+
+scalar Date
