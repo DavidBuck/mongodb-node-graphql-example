@@ -11,7 +11,7 @@ type Mutation {
     temp: Float!
     humidity: Float!
     time: Date!
-    sensor: String!
+    sensorId: String!
   ): SensorValue
   updateSensor(
     _id: ID!
@@ -24,7 +24,7 @@ type Mutation {
     temp: Float!
     humidity: Float!
     time: Date!
-    sensor: String!
+    sensorId: String!
   ): SensorValue
   deleteSensor(_id: ID!): Boolean
   deleteSensorValue(_id: ID!): Boolean
@@ -41,7 +41,7 @@ type SensorValue {
   temp: Float
   humidity: Float
   time: Date
-  sensor: String
+  sensor: Sensor
   _id: ID
 }
 

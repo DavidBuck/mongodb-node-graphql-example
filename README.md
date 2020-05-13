@@ -33,7 +33,12 @@ Go to [http://localhost:3000/playground](http://localhost:3000/playground) to la
     humidity
     time
     _id
-    sensor
+    sensor {
+      sensorName
+      type
+      location
+      _id
+    }
   }
 }
 ```
@@ -55,12 +60,17 @@ Go to [http://localhost:3000/playground](http://localhost:3000/playground) to la
 
 ```graphql
 {
-  sensorValue(_id: "5eba0a1e21480afecb43c096") {
+  sensorValue(_id: "5ebb20231b0fc015e75c0e0f") {
     temp
     humidity
     time
     _id
-    sensor
+    sensor {
+      sensorName
+      type
+      location
+      _id
+    }
   }
 }
 ```
@@ -92,13 +102,18 @@ mutation {
     temp: 25.4
     humidity: 82.2
     time: "2020-05-12T03:29:10.040Z"
-    sensor: "5eba1b5315de6001af4c8614"
+    sensorId: "5eba1b5315de6001af4c8614"
   ) {
     temp
     humidity
     time
     _id
-    sensor
+    sensor {
+      sensorName
+      type
+      location
+      _id
+    }
   }
 }
 ```
@@ -130,13 +145,18 @@ mutation {
     temp: 2.4
     humidity: 82.2
     time: "2020-05-12T03:29:10.040Z"
-    sensor: "5eba1ff3f550ab0288d69923"
+    sensorId: "5eba1ff3f550ab0288d69923"
   ) {
     temp
     humidity
     time
     _id
-    sensor
+    sensor {
+      sensorName
+      type
+      location
+      _id
+    }
   }
 }
 ```

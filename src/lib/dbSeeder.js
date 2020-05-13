@@ -17,40 +17,40 @@ const dbSeeder = async () => {
     temp: 22.3,
     humidity: 79.9,
     time: Date.now() + 60 * 1000,
-    sensor: sensor1.id,
+    sensorId: sensor1.id,
   })
   const sensor1Val2 = new models.SensorValue({
     temp: 24.5,
     humidity: 78.9,
     time: Date.now() + 120 * 1000,
-    sensor: sensor1.id,
+    sensorId: sensor1.id,
   })
   const sensor1Val3 = new models.SensorValue({
     temp: 21.2,
     humidity: 81.2,
     time: Date.now() + 180 * 1000,
-    sensor: sensor1.id,
+    sensorId: sensor1.id,
   })
 
   const sensor2Val1 = new models.SensorValue({
     temp: 32.3,
     humidity: 90.3,
     time: Date.now() + 60 * 1000,
-    sensor: sensor2.id,
+    sensorId: sensor2.id,
   })
 
   const sensor2Val2 = new models.SensorValue({
     temp: 31.4,
     humidity: 89.9,
     time: Date.now() + 120 * 1000,
-    sensor: sensor2.id,
+    sensorId: sensor2.id,
   })
 
   const sensor2Val3 = new models.SensorValue({
     temp: 33.6,
     humidity: 90.6,
     time: Date.now() + 180 * 1000,
-    sensor: sensor2.id,
+    sensorId: sensor2.id,
   })
 
   await sensor1.save()

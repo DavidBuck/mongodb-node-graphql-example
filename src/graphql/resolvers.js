@@ -17,6 +17,12 @@ export default {
       return sensorValue
     },
   },
+  SensorValue: {
+    sensor: async (parent, args, { models }) => {
+      const sensor = await models.Sensor.findById(parent.sensorId)
+      return sensor
+    },
+  },
   Mutation: {
     createSensor: async (
       parent,
@@ -32,14 +38,14 @@ export default {
     },
     createSensorValue: async (
       parent,
-      { temp, humidity, time, sensor },
+      { temp, humidity, time, sensorId },
       { models }
     ) => {
       const sensorValue = await models.SensorValue.create({
         temp,
         humidity,
         time,
-        sensor,
+        sensorId,
       })
       return sensorValue
     },
@@ -61,7 +67,7 @@ export default {
     },
     updateSensorValue: async (
       parent,
-      { _id, temp, humidity, time, sensor },
+      { _id, temp, humidity, time, sensorId },
       { models }
     ) => {
       const sensorValue = await models.SensorValue.findByIdAndUpdate(
@@ -70,7 +76,7 @@ export default {
           temp,
           humidity,
           time,
-          sensor,
+          sensorId,
         },
         { new: true }
       )
