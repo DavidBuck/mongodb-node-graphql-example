@@ -29,11 +29,16 @@ export default {
       { sensorName, type, location },
       { models }
     ) => {
-      const sensor = await models.Sensor.create({
-        sensorName,
-        type,
-        location,
-      })
+      let sensor
+      try {
+        sensor = await models.Sensor.create({
+          sensorName,
+          type,
+          location,
+        })
+      } catch (e) {
+        throw new Error("Error creating Sensor")
+      }
       return sensor
     },
     createSensorValue: async (
@@ -41,12 +46,17 @@ export default {
       { temp, humidity, time, sensorId },
       { models }
     ) => {
-      const sensorValue = await models.SensorValue.create({
-        temp,
-        humidity,
-        time,
-        sensorId,
-      })
+      let sensorValue
+      try {
+        sensorValue = await models.SensorValue.create({
+          temp,
+          humidity,
+          time,
+          sensorId,
+        })
+      } catch (e) {
+        throw new Error("Error creating SensorValue")
+      }
       return sensorValue
     },
     updateSensor: async (
@@ -54,15 +64,21 @@ export default {
       { _id, sensorName, type, location },
       { models }
     ) => {
-      const sensor = await models.Sensor.findByIdAndUpdate(
-        _id,
-        {
-          sensorName,
-          type,
-          location,
-        },
-        { new: true }
-      )
+      let sensor
+      try {
+        sensor = await models.Sensor.findByIdAndUpdate(
+          _id,
+          {
+            sensorName,
+            type,
+            location,
+          },
+          { new: true }
+        )
+      } catch (e) {
+        throw new Error("Error updating Sensor")
+      }
+
       return sensor
     },
     updateSensorValue: async (
@@ -70,16 +86,22 @@ export default {
       { _id, temp, humidity, time, sensorId },
       { models }
     ) => {
-      const sensorValue = await models.SensorValue.findByIdAndUpdate(
-        _id,
-        {
-          temp,
-          humidity,
-          time,
-          sensorId,
-        },
-        { new: true }
-      )
+      let sensorValue
+      try {
+        sensorValue = await models.SensorValue.findByIdAndUpdate(
+          _id,
+          {
+            temp,
+            humidity,
+            time,
+            sensorId,
+          },
+          { new: true }
+        )
+      } catch (e) {
+        throw new Error("Error updating SensorValue")
+      }
+
       return sensorValue
     },
     deleteSensor: async (parent, { _id }, { models }) => {
